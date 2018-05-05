@@ -9,6 +9,8 @@
 import Foundation
 
 class TopicRepository: Repository {
+    static let shared = TopicRepository()
+    
     private var _topics = [Topic]()
     
     func getAll() -> [Topic] {

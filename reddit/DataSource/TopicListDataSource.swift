@@ -22,11 +22,20 @@ class TopicListDataSource: NSObject {
         tableView.register(topicTVCellNib, forCellReuseIdentifier: TopicCellIdentifier)
     }
     
+    func clearTopics() {
+        _topics.removeAll()
+    }
+    
     func append(topic: Topic) {
         _topics.append(topic)
     }
     
     func append(contentsOf topics: [Topic]) {
+        _topics.append(contentsOf: topics)
+    }
+    
+    func set(topics: [Topic]) {
+        _topics.removeAll()
         _topics.append(contentsOf: topics)
     }
     

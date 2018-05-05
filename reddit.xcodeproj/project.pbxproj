@@ -23,6 +23,7 @@
 		EC0B20A4209DCE10008E2E18 /* TopicListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20A3209DCE10008E2E18 /* TopicListDataSource.swift */; };
 		EC0B20A9209DD5B3008E2E18 /* TopicTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20A8209DD5B3008E2E18 /* TopicTVCellViewModel.swift */; };
 		EC0B20AB209DD693008E2E18 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20AA209DD693008E2E18 /* Box.swift */; };
+		EC0B20AF209DDDFF008E2E18 /* TopicListVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20AE209DDDFF008E2E18 /* TopicListVCViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EC0B20A3209DCE10008E2E18 /* TopicListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListDataSource.swift; sourceTree = "<group>"; };
 		EC0B20A8209DD5B3008E2E18 /* TopicTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTVCellViewModel.swift; sourceTree = "<group>"; };
 		EC0B20AA209DD693008E2E18 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		EC0B20AE209DDDFF008E2E18 /* TopicListVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListVCViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				EC0B20A8209DD5B3008E2E18 /* TopicTVCellViewModel.swift */,
+				EC0B20AE209DDDFF008E2E18 /* TopicListVCViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				EC0B2098209DC0CF008E2E18 /* Topic.swift in Sources */,
 				EC0B2096209DC0C0008E2E18 /* Repository.swift in Sources */,
 				EC0B209A209DC209008E2E18 /* TopicRespository.swift in Sources */,
+				EC0B20AF209DDDFF008E2E18 /* TopicListVCViewModel.swift in Sources */,
 				EC0B20A1209DCC95008E2E18 /* TopicTVCell.swift in Sources */,
 				EC0B20AB209DD693008E2E18 /* Box.swift in Sources */,
 			);

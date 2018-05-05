@@ -141,4 +141,16 @@ class redditTests: XCTestCase {
             "Topic value not cleared after didNotifyDelegateDidTapDownvote"
         )
     }
+    
+    // MARK: - TopicListVCViewModel
+    func testTopicListVCViewModel() {
+        let viewModel = TopicListVCViewModel()
+        
+        
+    }
+    
+    // MARK: - AddTopicVCViewModel
+    func testAddTopicVCViewModel() {
+//        let viewModel =
+    }
 }
