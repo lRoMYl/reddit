@@ -55,6 +55,9 @@ extension AddTopicError: LocalizedError {
 }
 
 class AddTopicVCViewModel: AddTopicVCViewModelType, AddTopicVCViewModelInputs, AddTopicVCViewModelOutputs {
+    
+    fileprivate let topicRepo: TopicRepository
+    
     func didTapCancel() {
         outputs.notifyDelegateDidTapCancel.value = ()
     }
@@ -74,11 +77,11 @@ class AddTopicVCViewModel: AddTopicVCViewModelType, AddTopicVCViewModelInputs, A
             return
         }
         
-        let count = TopicRepository.shared.getAll().count
+        let count = topicRepo.getAll().count
         var topic = Topic(id: "\(count + 1)")
         topic.content = content
         
-        if let error = TopicRepository.shared.add(topic) {
+        if let error = topicRepo.add(topic) {
             self.error.value = AddTopicError.add(message: error.localizedDescription)
         } else {
             outputs.notifyDelegateDidAdd.value = topic
@@ -109,7 +112,8 @@ class AddTopicVCViewModel: AddTopicVCViewModelType, AddTopicVCViewModelInputs, A
     var inputs: AddTopicVCViewModelInputs { return self }
     var outputs: AddTopicVCViewModelOutputs { return self }
     
-    init() {
+    init(repo: TopicRepository = TopicRepository.shared) {
+        topicRepo = repo
         outputs.title.value = NSLocalizedString("Text Post", comment: "")
     }
 }

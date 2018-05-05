@@ -42,8 +42,10 @@ protocol TopicListVCViewModelType {
 
 class TopicListVCViewModel: TopicListVCViewModelType, TopicListVCViewModelInputs, TopicListVCViewModelOutputs {
 
+    fileprivate let topicRepo: TopicRepository
+    
     private func updateTopic(_ topic: Topic) {
-        if let error = TopicRepository.shared.update(topic) {
+        if let error = topicRepo.update(topic) {
             outputs.error.value = error
         } else {
             if let idx = topics.value.index(of: topic) {
@@ -57,7 +59,7 @@ class TopicListVCViewModel: TopicListVCViewModelType, TopicListVCViewModelInputs
         
         // Fetch data
         outputs.topics.value = Array(
-            TopicRepository.shared.getAll()
+            topicRepo.getAll()
             .sorted(by: >)
             .prefix(20)
         )
@@ -89,14 +91,14 @@ class TopicListVCViewModel: TopicListVCViewModelType, TopicListVCViewModelInputs
     
     func didTapL33t() {
         for _: Int in 0..<1 {
-            let count = TopicRepository.shared.getAll().count
+            let count = topicRepo.getAll().count
             var topic = Topic(id: "\(count + 1)")
             topic.content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
             
-            _ = TopicRepository.shared.add(topic)
+            _ = topicRepo.add(topic)
         }
         
-        outputs.topics.value = TopicRepository.shared.getAll()
+        outputs.topics.value = topicRepo.getAll()
     }
     
     func didPresentError() {
@@ -116,7 +118,8 @@ class TopicListVCViewModel: TopicListVCViewModelType, TopicListVCViewModelInputs
     var inputs: TopicListVCViewModelInputs { return self }
     var outputs: TopicListVCViewModelOutputs { return self }
     
-    init() {
+    init(repo: TopicRepository = TopicRepository.shared) {
+        topicRepo = repo
         title.value = NSLocalizedString("Topics", comment: "")
     }
 }

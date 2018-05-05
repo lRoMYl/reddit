@@ -144,13 +144,95 @@ class redditTests: XCTestCase {
     
     // MARK: - TopicListVCViewModel
     func testTopicListVCViewModel() {
-        let viewModel = TopicListVCViewModel()
+        let repo = TopicRepository()
+        let numToInsert = 10
+        insertMockIn(repo: repo, numToInsert: numToInsert)
         
+        let viewModel = TopicListVCViewModel(repo: repo)
         
+        viewModel.inputs.didTapAdd()
+        XCTAssertNotNil(
+            viewModel.outputs.goToAddTopic.value,
+            "Error goToAddTopic should not be nil before navigating"
+        )
+        viewModel.inputs.didGotoAddTopic()
+        XCTAssertNil(
+            viewModel.outputs.goToAddTopic.value,
+            "Error goToAddTopic should be nil after navigating"
+        )
+        
+        if let topic = repo.getAll().first {
+            let expectedVoteCount = topic.vote + 1
+            viewModel.inputs.didUpvote(topic: topic)
+            
+            if let updatedTopic = repo.find(id: topic.id) {
+                XCTAssertEqual(
+                    expectedVoteCount,
+                    updatedTopic.vote,
+                    "Topic vote is not upvoted in the repo"
+                )
+            }
+        }
+        
+        if let topic = repo.getAll().first {
+            let expectedVoteCount = topic.vote - 1
+            viewModel.inputs.didDownvote(topic: topic)
+            
+            if let updatedTopic = repo.find(id: topic.id) {
+                XCTAssertEqual(
+                    expectedVoteCount,
+                    updatedTopic.vote,
+                    "Topic vote is not downvoted in the repo"
+                )
+            }
+        }
     }
     
     // MARK: - AddTopicVCViewModel
     func testAddTopicVCViewModel() {
-//        let viewModel =
+        let repo = TopicRepository()
+        let numToInsert = 10
+        insertMockIn(repo: repo, numToInsert: numToInsert)
+        
+        let viewModel = AddTopicVCViewModel(repo: repo)
+        
+        viewModel.inputs.didTapAdd()
+        
+        XCTAssertNotNil(
+            viewModel.outputs.error.value,
+            "Error should be created due to empty content"
+        )
+        
+        viewModel.inputs.didDisplayError()
+        XCTAssertNil(
+            viewModel.outputs.error.value,
+            "Error should be clear after presenting the error"
+        )
+        
+        let charLimit = viewModel.outputs.charLimit.value
+        let invalidLongString = String(
+            repeating: "a", count: charLimit + 1
+        )
+        viewModel.outputs.content.value = invalidLongString
+        XCTAssertEqual(
+            viewModel.outputs.content.value,
+            invalidLongString,
+            "post content value should be equal with the value set"
+        )
+        
+        viewModel.inputs.didTapAdd()
+        XCTAssertNotNil(
+            viewModel.outputs.error.value,
+            "Error should be created because the post content string is longer that charLimit \(charLimit)"
+        )
+        viewModel.inputs.didDisplayError()
+        
+        viewModel.outputs.content.value = "Test valid value"
+        viewModel.inputs.didTapAdd()
+        
+        XCTAssertNil(
+            viewModel.outputs.error.value,
+            "Should not return error for valid content"
+        )
     }
 }
