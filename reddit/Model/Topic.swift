@@ -26,3 +26,21 @@ extension Topic: Equatable {
         return lhs.id == rhs.id
     }
 }
+
+extension Topic: Comparable {
+    static func < (lhs: Topic, rhs: Topic) -> Bool {
+        if lhs.vote == rhs.vote {
+            return lhs.createdAt < rhs.createdAt
+        }
+        
+        return lhs.vote < rhs.vote
+    }
+    
+    static func > (lhs: Topic, rhs: Topic) -> Bool {
+        if lhs.vote == rhs.vote {
+            return lhs.createdAt > rhs.createdAt
+        }
+        
+        return lhs.vote > rhs.vote
+    }
+}

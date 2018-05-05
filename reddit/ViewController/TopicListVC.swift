@@ -13,6 +13,9 @@ class TopicListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //
+    let refreshControl = UIRefreshControl()
+    
+    //
     let viewModel = TopicListVCViewModel()
     let dataSource = TopicListDataSource()
     
@@ -21,6 +24,8 @@ class TopicListVC: UIViewController {
         
         setupView()
         setupListener()
+        
+        viewModel.inputs.fetchTopics()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +44,8 @@ class TopicListVC: UIViewController {
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
+        
+        tableView.addSubview(refreshControl)
     }
     
     private func setupNavBar() {
@@ -63,6 +70,12 @@ class TopicListVC: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         
+        refreshControl.addTarget(
+            self,
+            action: #selector(actionRefresh),
+            for: .valueChanged
+        )
+        
         viewModel.outputs.title.bind { [weak self] in
             self?.navigationItem.title = $0
         }
@@ -85,6 +98,18 @@ class TopicListVC: UIViewController {
                 self?.presentError(error: error)
             }
         }
+        
+        viewModel.outputs.fetching.bind { [weak self] (fetching) in
+            guard let strongSelf = self else { return }
+            
+            if fetching {
+                if strongSelf.refreshControl.isRefreshing {
+                    strongSelf.refreshControl.beginRefreshing()
+                }
+            } else {
+                strongSelf.refreshControl.endRefreshing()
+            }
+        }
     }
     
     // MARK: - Action / Listener
@@ -94,6 +119,10 @@ class TopicListVC: UIViewController {
     
     @IBAction func didTapAdd() {
         viewModel.inputs.didTapAdd()
+    }
+    
+    @IBAction func actionRefresh() {
+        viewModel.inputs.fetchTopics()
     }
     
     // MARK: - Navigation
@@ -154,12 +183,10 @@ extension TopicListVC: UITableViewDelegate {
 extension TopicListVC: TopicTVCellDelegate {
     func topicTVCell(_ cell: TopicTVCell, didTapUpvote topic: Topic) {
         viewModel.inputs.didUpvote(topic: topic)
-        viewModel.inputs.fetchTopics()
     }
     
     func topicTVCell(_ cell: TopicTVCell, didTapDownVote topic: Topic) {
         viewModel.inputs.didDownvote(topic: topic)
-        viewModel.inputs.fetchTopics()
     }
 }
 
@@ -171,5 +198,7 @@ extension TopicListVC: AddTopicVCDelegate {
     
     func addTopicVC(_ viewController: AddTopicVC, didAdd topic: Topic) {
         viewController.navigationController?.dismiss(animated: true, completion: nil)
+        
+        viewModel.inputs.didAdd(topic: topic)
     }
 }

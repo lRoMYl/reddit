@@ -15,6 +15,8 @@ protocol TopicListVCViewModelInputs {
     func didUpvote(topic: Topic)
     func didDownvote(topic: Topic)
     
+    func didAdd(topic: Topic)
+    
     func didTapAdd()
     func didTapL33t()
     
@@ -54,7 +56,11 @@ class TopicListVCViewModel: TopicListVCViewModelType, TopicListVCViewModelInputs
         outputs.fetching.value = true
         
         // Fetch data
-        outputs.topics.value = TopicRepository.shared.getAll()
+        outputs.topics.value = Array(
+            TopicRepository.shared.getAll()
+            .sorted(by: >)
+            .prefix(20)
+        )
         
         outputs.fetching.value = false
     }
@@ -71,6 +77,10 @@ class TopicListVCViewModel: TopicListVCViewModelType, TopicListVCViewModelInputs
         mutableTopic.vote -= 1
         
         updateTopic(mutableTopic)
+    }
+    
+    func didAdd(topic: Topic) {
+        outputs.topics.value.insert(topic, at: 0)
     }
     
     func didTapAdd() {
