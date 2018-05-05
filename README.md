@@ -4,9 +4,11 @@ A simplified Reddit app to demo using MVVM without RX library and Repository des
 
 ## Functionalities;
 ### List of topics, sorted by vote and filtered to 20 items (In-memory repo, no persistency)
-- Topics are stored into TopicRepository that implements a custom generic Repository protocol that adhere to simple operation such as find, getAll, add, update and delete
+- A struct Topic is used to store the data for the topic
+- A common Repository protocol which includes all basic operation such as find, getAll, add, update and delete
+- TopicRepository implement the Repository protocol and manage an array of Topic struct internally and perform the operations internally
 - Sorting is implemented using Comparable interface and built-in sort mechanism, specifically sorted(by:)
-- Filtering is implemted using built-in filter mechanism, specifically prefix(_:)
+- Filtering is implemented using built-in filter mechanism, specifically prefix(_:)
 
 ### Add text based topic with minimum 0 characters and maximum 255 characters limit validation
 - Simple validation using guard statement to check for the inputs validity after removing white space and new lines
@@ -23,4 +25,5 @@ A simplified Reddit app to demo using MVVM without RX library and Repository des
 - The ViewModel also allow dependency injection of the repository to perform the testing in isolation
 
 ### MVVM view binding
-- The ViewModel value will automatically trigger the listener to update the view accordingly in setupListener without the usual RxSwift/ReactiveSwift library using Box concept which accept a generic Value and then trigger the listener when the value or listener is set
+- Box implemention that accept a generic associatedType
+- Box will also include a closure callback parameter which can be set using the bind method, which can be used to update the desired UI element when changes occur
