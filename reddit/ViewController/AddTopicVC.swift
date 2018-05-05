@@ -47,7 +47,7 @@ class AddTopicVC: UIViewController {
 
     // MARK: - Setup
     private func setupView() {
-        
+        textView.becomeFirstResponder()
     }
     
     private func setupNavBar() {
