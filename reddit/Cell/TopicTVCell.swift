@@ -46,7 +46,7 @@ class TopicTVCell: UITableViewCell {
     
     // MARK: - Setup
     private func setupView() {
-        
+        selectionStyle = .none
     }
     
     private func setupListener() {
