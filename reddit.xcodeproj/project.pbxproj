@@ -13,6 +13,9 @@
 		EC0B2069209DBF5F008E2E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B2067209DBF5F008E2E18 /* LaunchScreen.storyboard */; };
 		EC0B2074209DBF60008E2E18 /* redditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2073209DBF60008E2E18 /* redditTests.swift */; };
 		EC0B207F209DBF60008E2E18 /* redditUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B207E209DBF60008E2E18 /* redditUITests.swift */; };
+		EC0B2096209DC0C0008E2E18 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2095209DC0C0008E2E18 /* Repository.swift */; };
+		EC0B2098209DC0CF008E2E18 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2097209DC0CF008E2E18 /* Topic.swift */; };
+		EC0B209A209DC209008E2E18 /* TopicRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2099209DC209008E2E18 /* TopicRespository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		EC0B207A209DBF60008E2E18 /* redditUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = redditUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0B207E209DBF60008E2E18 /* redditUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redditUITests.swift; sourceTree = "<group>"; };
 		EC0B2080209DBF60008E2E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC0B2095209DC0C0008E2E18 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		EC0B2097209DC0CF008E2E18 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		EC0B2099209DC209008E2E18 /* TopicRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicRespository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,7 @@
 		EC0B2091209DC060008E2E18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC0B2097209DC0CF008E2E18 /* Topic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +183,8 @@
 		EC0B2092209DC061008E2E18 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				EC0B2095209DC0C0008E2E18 /* Repository.swift */,
+				EC0B2099209DC209008E2E18 /* TopicRespository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -326,6 +335,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC0B205D209DBF5E008E2E18 /* AppDelegate.swift in Sources */,
+				EC0B2098209DC0CF008E2E18 /* Topic.swift in Sources */,
+				EC0B2096209DC0C0008E2E18 /* Repository.swift in Sources */,
+				EC0B209A209DC209008E2E18 /* TopicRespository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
