@@ -16,6 +16,10 @@
 		EC0B2096209DC0C0008E2E18 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2095209DC0C0008E2E18 /* Repository.swift */; };
 		EC0B2098209DC0CF008E2E18 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2097209DC0CF008E2E18 /* Topic.swift */; };
 		EC0B209A209DC209008E2E18 /* TopicRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2099209DC209008E2E18 /* TopicRespository.swift */; };
+		EC0B209C209DCB19008E2E18 /* TopicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B209B209DCB19008E2E18 /* TopicListVC.swift */; };
+		EC0B209E209DCBC9008E2E18 /* AddTopicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B209D209DCBC9008E2E18 /* AddTopicVC.swift */; };
+		EC0B20A1209DCC95008E2E18 /* TopicTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B209F209DCC95008E2E18 /* TopicTVCell.swift */; };
+		EC0B20A2209DCC95008E2E18 /* TopicTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0B20A0209DCC95008E2E18 /* TopicTVCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		EC0B2095209DC0C0008E2E18 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		EC0B2097209DC0CF008E2E18 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		EC0B2099209DC209008E2E18 /* TopicRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicRespository.swift; sourceTree = "<group>"; };
+		EC0B209B209DCB19008E2E18 /* TopicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListVC.swift; sourceTree = "<group>"; };
+		EC0B209D209DCBC9008E2E18 /* AddTopicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicVC.swift; sourceTree = "<group>"; };
+		EC0B209F209DCC95008E2E18 /* TopicTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTVCell.swift; sourceTree = "<group>"; };
+		EC0B20A0209DCC95008E2E18 /* TopicTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicTVCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,8 @@
 		EC0B208C209DC060008E2E18 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EC0B209F209DCC95008E2E18 /* TopicTVCell.swift */,
+				EC0B20A0209DCC95008E2E18 /* TopicTVCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -161,6 +171,8 @@
 		EC0B208F209DC060008E2E18 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EC0B209B209DCB19008E2E18 /* TopicListVC.swift */,
+				EC0B209D209DCBC9008E2E18 /* AddTopicVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -308,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC0B2069209DBF5F008E2E18 /* LaunchScreen.storyboard in Resources */,
+				EC0B20A2209DCC95008E2E18 /* TopicTVCell.xib in Resources */,
 				EC0B2066209DBF5F008E2E18 /* Assets.xcassets in Resources */,
 				EC0B2064209DBF5E008E2E18 /* Main.storyboard in Resources */,
 			);
@@ -334,10 +347,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0B209C209DCB19008E2E18 /* TopicListVC.swift in Sources */,
 				EC0B205D209DBF5E008E2E18 /* AppDelegate.swift in Sources */,
+				EC0B209E209DCBC9008E2E18 /* AddTopicVC.swift in Sources */,
 				EC0B2098209DC0CF008E2E18 /* Topic.swift in Sources */,
 				EC0B2096209DC0C0008E2E18 /* Repository.swift in Sources */,
 				EC0B209A209DC209008E2E18 /* TopicRespository.swift in Sources */,
+				EC0B20A1209DCC95008E2E18 /* TopicTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

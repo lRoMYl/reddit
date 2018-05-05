@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="119" id="KGk-i7-Jjw" customClass="TopicTVCell" customModule="reddit" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="119"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="323" height="118.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SuT-KF-0xf">
+                        <rect key="frame" x="0.0" y="0.0" width="323" height="118.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD7-7I-Je3">
+                                <rect key="frame" x="12" y="12" width="299" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-0C-57w">
+                                <rect key="frame" x="0.0" y="74.5" width="323" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-ip-ffT">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guf-Kc-ZAm">
+                                        <rect key="frame" x="46" y="0.0" width="46" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2D-35-WwD">
+                                        <rect key="frame" x="92" y="0.0" width="46" height="44"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="guf-Kc-ZAm" firstAttribute="leading" secondItem="0N3-ip-ffT" secondAttribute="trailing" id="1im-pt-PRO"/>
+                                    <constraint firstItem="0N3-ip-ffT" firstAttribute="leading" secondItem="cBw-0C-57w" secondAttribute="leading" id="3E5-92-2jd"/>
+                                    <constraint firstItem="v2D-35-WwD" firstAttribute="top" secondItem="cBw-0C-57w" secondAttribute="top" id="9aP-42-sjT"/>
+                                    <constraint firstAttribute="bottom" secondItem="v2D-35-WwD" secondAttribute="bottom" id="CRn-6O-rMo"/>
+                                    <constraint firstItem="v2D-35-WwD" firstAttribute="leading" secondItem="guf-Kc-ZAm" secondAttribute="trailing" id="Dg3-dQ-UbE"/>
+                                    <constraint firstAttribute="bottom" secondItem="0N3-ip-ffT" secondAttribute="bottom" id="edE-Gz-8I0"/>
+                                    <constraint firstAttribute="bottom" secondItem="guf-Kc-ZAm" secondAttribute="bottom" id="hYV-x7-IqZ"/>
+                                    <constraint firstItem="0N3-ip-ffT" firstAttribute="top" secondItem="cBw-0C-57w" secondAttribute="top" id="jui-aR-ZiJ"/>
+                                    <constraint firstItem="guf-Kc-ZAm" firstAttribute="top" secondItem="cBw-0C-57w" secondAttribute="top" id="kYa-xc-DoF"/>
+                                    <constraint firstAttribute="height" constant="44" id="xuS-j5-Gpu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HD7-7I-Je3" firstAttribute="top" secondItem="SuT-KF-0xf" secondAttribute="top" constant="12" id="394-Ca-73z"/>
+                            <constraint firstAttribute="bottom" secondItem="cBw-0C-57w" secondAttribute="bottom" id="Kal-Ez-sUB"/>
+                            <constraint firstItem="cBw-0C-57w" firstAttribute="leading" secondItem="SuT-KF-0xf" secondAttribute="leading" id="UTW-Kf-7w4"/>
+                            <constraint firstItem="cBw-0C-57w" firstAttribute="top" secondItem="HD7-7I-Je3" secondAttribute="bottom" constant="12" id="dER-4C-jvJ"/>
+                            <constraint firstAttribute="trailing" secondItem="cBw-0C-57w" secondAttribute="trailing" id="gx8-at-gtd"/>
+                            <constraint firstAttribute="trailing" secondItem="HD7-7I-Je3" secondAttribute="trailing" constant="12" id="kQR-Kq-qny"/>
+                            <constraint firstItem="HD7-7I-Je3" firstAttribute="leading" secondItem="SuT-KF-0xf" secondAttribute="leading" constant="12" id="t0h-gi-Ruu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SuT-KF-0xf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="88o-Ph-zAU"/>
+                    <constraint firstAttribute="bottom" secondItem="SuT-KF-0xf" secondAttribute="bottom" id="JAx-xZ-JhS"/>
+                    <constraint firstAttribute="trailing" secondItem="SuT-KF-0xf" secondAttribute="trailing" id="O46-1g-2FI"/>
+                    <constraint firstItem="SuT-KF-0xf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cMx-N7-MO2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentLbl" destination="HD7-7I-Je3" id="UQz-X2-sWi"/>
+                <outlet property="downvoteBtn" destination="v2D-35-WwD" id="5Rg-Zh-blL"/>
+                <outlet property="upvoteBtn" destination="0N3-ip-ffT" id="Lk4-7C-2nx"/>
+                <outlet property="voteCountBtn" destination="guf-Kc-ZAm" id="onh-gB-4gC"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="95.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,11 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tNv-SF-2Dc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ry5-sw-ivB">
+            <objects>
+                <navigationController id="tNv-SF-2Dc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9gU-uy-S29">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="T01-IA-PWY" kind="relationship" relationship="rootViewController" id="NUH-fL-Fx4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIo-Sg-lJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1042" y="44"/>
+        </scene>
+        <!--Topic ListVC-->
+        <scene sceneID="Pp7-Fi-DeW">
+            <objects>
+                <viewController storyboardIdentifier="TopicListVC" id="T01-IA-PWY" customClass="TopicListVC" customModule="reddit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JCK-7Q-tfw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q9e-FJ-DBR">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q9e-FJ-DBR" firstAttribute="leading" secondItem="OLr-td-iZU" secondAttribute="leading" id="SBc-w7-bWo"/>
+                            <constraint firstItem="q9e-FJ-DBR" firstAttribute="top" secondItem="OLr-td-iZU" secondAttribute="top" id="joa-bR-tL2"/>
+                            <constraint firstItem="q9e-FJ-DBR" firstAttribute="trailing" secondItem="OLr-td-iZU" secondAttribute="trailing" id="prb-fx-go1"/>
+                            <constraint firstItem="OLr-td-iZU" firstAttribute="bottom" secondItem="q9e-FJ-DBR" secondAttribute="bottom" id="tHp-s3-fq9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OLr-td-iZU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e7o-I8-bo2"/>
+                    <connections>
+                        <outlet property="tableView" destination="q9e-FJ-DBR" id="Rdv-LK-sxE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C3o-nv-dhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-270" y="44"/>
+        </scene>
+        <!--Add TopicVC-->
+        <scene sceneID="LRP-5t-k0g">
+            <objects>
+                <viewController storyboardIdentifier="AddTopicVC" id="Q4K-OR-36g" customClass="AddTopicVC" customModule="reddit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zeg-ud-Kcu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="74T-5b-agH">
+                                <rect key="frame" x="12" y="20" width="351" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="74T-5b-agH" firstAttribute="leading" secondItem="cEb-kD-8CM" secondAttribute="leading" constant="12" id="EqA-0X-CrT"/>
+                            <constraint firstItem="cEb-kD-8CM" firstAttribute="trailing" secondItem="74T-5b-agH" secondAttribute="trailing" constant="12" id="SEW-SF-cmE"/>
+                            <constraint firstItem="74T-5b-agH" firstAttribute="top" secondItem="cEb-kD-8CM" secondAttribute="top" id="Zhk-4M-pJB"/>
+                            <constraint firstItem="cEb-kD-8CM" firstAttribute="bottom" secondItem="74T-5b-agH" secondAttribute="bottom" id="yVb-42-gPn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cEb-kD-8CM"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="74T-5b-agH" id="Svz-vd-3QF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhB-A9-1sJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="44"/>
+        </scene>
+    </scenes>
 </document>
