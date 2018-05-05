@@ -82,7 +82,8 @@ class TopicListVCViewModel: TopicListVCViewModelType, TopicListVCViewModelInputs
     }
     
     func didAdd(topic: Topic) {
-        outputs.topics.value.insert(topic, at: 0)
+//        outputs.topics.value.insert(topic, at: 0)
+        fetchTopics()
     }
     
     func didTapAdd() {
