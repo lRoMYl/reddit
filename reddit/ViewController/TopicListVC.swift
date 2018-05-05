@@ -55,10 +55,29 @@ class TopicListVC: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         
-        dataSource.append(contentsOf: [Topic(id: "1")])
+        var topic = Topic(id: "1")
+        topic.content = "Lorem ipsum"
+        
+        dataSource.append(contentsOf: [topic])
     }
 }
 
+// MARK: - UITableViewDelegate
 extension TopicListVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? TopicTVCell {
+            cell.delegate = self
+        }
+    }
+}
+
+// MARK: - TopicTVCellDelegate
+extension TopicListVC: TopicTVCellDelegate {
+    func topicTVCellDidTapUpvote(_ cell: TopicTVCell) {
+        
+    }
     
+    func topicTVCellDidTapDownvote(_ cell: TopicTVCell) {
+        
+    }
 }

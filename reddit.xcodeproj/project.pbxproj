@@ -21,6 +21,8 @@
 		EC0B20A1209DCC95008E2E18 /* TopicTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B209F209DCC95008E2E18 /* TopicTVCell.swift */; };
 		EC0B20A2209DCC95008E2E18 /* TopicTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0B20A0209DCC95008E2E18 /* TopicTVCell.xib */; };
 		EC0B20A4209DCE10008E2E18 /* TopicListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20A3209DCE10008E2E18 /* TopicListDataSource.swift */; };
+		EC0B20A9209DD5B3008E2E18 /* TopicTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20A8209DD5B3008E2E18 /* TopicTVCellViewModel.swift */; };
+		EC0B20AB209DD693008E2E18 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20AA209DD693008E2E18 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		EC0B209F209DCC95008E2E18 /* TopicTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTVCell.swift; sourceTree = "<group>"; };
 		EC0B20A0209DCC95008E2E18 /* TopicTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicTVCell.xib; sourceTree = "<group>"; };
 		EC0B20A3209DCE10008E2E18 /* TopicListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListDataSource.swift; sourceTree = "<group>"; };
+		EC0B20A8209DD5B3008E2E18 /* TopicTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTVCellViewModel.swift; sourceTree = "<group>"; };
+		EC0B20AA209DD693008E2E18 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,15 +115,15 @@
 		EC0B205B209DBF5E008E2E18 /* reddit */ = {
 			isa = PBXGroup;
 			children = (
-				EC0B208C209DC060008E2E18 /* Cell */,
-				EC0B208D209DC060008E2E18 /* DataSource */,
 				EC0B2093209DC061008E2E18 /* Extension */,
 				EC0B2091209DC060008E2E18 /* Model */,
-				EC0B2092209DC061008E2E18 /* Repository */,
 				EC0B208E209DC060008E2E18 /* Utility */,
+				EC0B2092209DC061008E2E18 /* Repository */,
+				EC0B208D209DC060008E2E18 /* DataSource */,
+				EC0B20A7209DD590008E2E18 /* ViewModel */,
 				EC0B2094209DC061008E2E18 /* View */,
 				EC0B208F209DC060008E2E18 /* ViewController */,
-				EC0B2090209DC060008E2E18 /* ViewModel */,
+				EC0B208C209DC060008E2E18 /* Cell */,
 				EC0B205C209DBF5E008E2E18 /* AppDelegate.swift */,
 				EC0B2062209DBF5E008E2E18 /* Main.storyboard */,
 				EC0B2065209DBF5F008E2E18 /* Assets.xcassets */,
@@ -180,17 +184,11 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		EC0B2090209DC060008E2E18 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		EC0B2091209DC060008E2E18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				EC0B2097209DC0CF008E2E18 /* Topic.swift */,
+				EC0B20AA209DD693008E2E18 /* Box.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +214,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EC0B20A7209DD590008E2E18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC0B20A8209DD5B3008E2E18 /* TopicTVCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,11 +359,13 @@
 				EC0B209C209DCB19008E2E18 /* TopicListVC.swift in Sources */,
 				EC0B205D209DBF5E008E2E18 /* AppDelegate.swift in Sources */,
 				EC0B20A4209DCE10008E2E18 /* TopicListDataSource.swift in Sources */,
+				EC0B20A9209DD5B3008E2E18 /* TopicTVCellViewModel.swift in Sources */,
 				EC0B209E209DCBC9008E2E18 /* AddTopicVC.swift in Sources */,
 				EC0B2098209DC0CF008E2E18 /* Topic.swift in Sources */,
 				EC0B2096209DC0C0008E2E18 /* Repository.swift in Sources */,
 				EC0B209A209DC209008E2E18 /* TopicRespository.swift in Sources */,
 				EC0B20A1209DCC95008E2E18 /* TopicTVCell.swift in Sources */,
+				EC0B20AB209DD693008E2E18 /* Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
