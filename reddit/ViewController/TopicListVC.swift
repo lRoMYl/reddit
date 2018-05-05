@@ -98,6 +98,8 @@ class TopicListVC: UIViewController {
     
     // MARK: - Navigation
     func presentError(error: Error) {
+        viewModel.didPresentError()
+        
         let alert = UIAlertController(
             title: NSLocalizedString("Error", comment: ""),
             message: error.localizedDescription,
@@ -113,14 +115,18 @@ class TopicListVC: UIViewController {
         alert.addAction(actionOk)
         
         navigationController?.present(alert, animated: true, completion: nil)
-        
-        viewModel.didPresentError()
     }
     
     func goToAddTopicVC() {
+        viewModel.inputs.didGotoAddTopic()
+        
         let identifier = String(describing: AddTopicVC.self)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: identifier)
+        guard let vc = storyboard.instantiateViewController(
+            withIdentifier: identifier
+        ) as? AddTopicVC else { return }
+        
+        vc.delegate = self
         
         let navController = UINavigationController(
             navigationBarClass: UINavigationBar.self,
@@ -132,8 +138,6 @@ class TopicListVC: UIViewController {
         present(
             navController, animated: true, completion: nil
         )
-        
-        viewModel.inputs.didGotoAddTopic()
     }
 }
 
@@ -156,5 +160,16 @@ extension TopicListVC: TopicTVCellDelegate {
     func topicTVCell(_ cell: TopicTVCell, didTapDownVote topic: Topic) {
         viewModel.inputs.didDownvote(topic: topic)
         viewModel.inputs.fetchTopics()
+    }
+}
+
+// MARK: = AddTopicVCDelegate
+extension TopicListVC: AddTopicVCDelegate {
+    func addTopicVCDidTapCancel(_ viewController: AddTopicVC) {
+        viewController.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func addTopicVC(_ viewController: AddTopicVC, didAdd topic: Topic) {
+        viewController.navigationController?.dismiss(animated: true, completion: nil)
     }
 }
