@@ -9,12 +9,14 @@
 import UIKit
 
 protocol TopicTVCellDelegate: class {
-    func topicTVCellDidTapUpvote(
-        _ cell: TopicTVCell
+    func topicTVCell(
+        _ cell: TopicTVCell,
+        didTapUpvote topic: Topic
     )
     
-    func topicTVCellDidTapDownvote(
-        _ cell: TopicTVCell
+    func topicTVCell(
+        _ cell: TopicTVCell,
+        didTapDownVote topic: Topic
     )
 }
 
@@ -84,16 +86,18 @@ class TopicTVCell: UITableViewCell {
         viewModel.outputs.notifyDelegateDidTapUpvote.bind { [weak self] in
             guard let strongSelf = self else { return }
             
-            if $0 != nil {
-                self?.delegate?.topicTVCellDidTapUpvote(strongSelf)
+            if let topic = $0 {
+                self?.delegate?.topicTVCell(strongSelf, didTapUpvote: topic)
+                self?.viewModel.inputs.didNotifyDelegateDidTapUnvote()
             }
         }
         
         viewModel.outputs.notifyDelegateDidTapDownvote.bind { [weak self] in
             guard let strongSelf = self else { return }
             
-            if $0 != nil {
-                self?.delegate?.topicTVCellDidTapDownvote(strongSelf)
+            if let topic = $0 {
+                self?.delegate?.topicTVCell(strongSelf, didTapDownVote: topic)
+                self?.viewModel.inputs.didNotifyDelegateDidTapDownvote()
             }
         }
     }
@@ -131,7 +135,6 @@ class TopicTVCell: UITableViewCell {
     
     // MARK: - Configurator
     func configureWith(value: Topic) {
-        viewModel.content.value = value.content
-        viewModel.vote.value = value.vote
+        viewModel.configure(topic: value)
     }
 }

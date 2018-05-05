@@ -104,4 +104,41 @@ class redditTests: XCTestCase {
             "Updating topic not found in repo will append new topic into repo, expected count is \(repoCountAfterUpdate) but only \(repo.getAll().count) was found"
         )
     }
+    
+    // MARK: TopicTVCellViewModel
+    func testTopicTVCell() {
+        let viewModel = TopicTVCellViewModel()
+        let topic: Topic = {
+            var topic = Topic(id: "1")
+            
+            topic.content = "test"
+            topic.vote = 10
+            
+            return topic
+        }()
+        
+        viewModel.inputs.configure(topic: topic)
+        
+        viewModel.inputs.didTapUpvote()
+        XCTAssertNotNil(
+            viewModel.outputs.notifyDelegateDidTapUpvote.value,
+            "Missing topic value after didTapUpvote"
+        )
+        viewModel.inputs.didNotifyDelegateDidTapUnvote()
+        XCTAssertNil(
+            viewModel.outputs.notifyDelegateDidTapUpvote.value,
+            "Topic value not cleared after didNotifyDelegateDidTapUnvote"
+        )
+        
+        viewModel.inputs.didTapDownvote()
+        XCTAssertNotNil(
+            viewModel.outputs.notifyDelegateDidTapDownvote.value,
+            "Missing topic value after didTapDownvote"
+        )
+        viewModel.inputs.didNotifyDelegateDidTapDownvote()
+        XCTAssertNil(
+            viewModel.outputs.notifyDelegateDidTapDownvote.value,
+            "Topic value not cleared after didNotifyDelegateDidTapDownvote"
+        )
+    }
 }

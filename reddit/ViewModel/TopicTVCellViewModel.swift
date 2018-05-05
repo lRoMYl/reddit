@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 
 protocol TopicTVCellViewModelInputs {
+    func configure(topic: Topic)
     func didTapUpvote()
     func didTapDownvote()
+    func didNotifyDelegateDidTapUnvote()
+    func didNotifyDelegateDidTapDownvote()
 }
 
 protocol TopicTVCellViewModelOutputs {
@@ -22,8 +25,8 @@ protocol TopicTVCellViewModelOutputs {
     var downvoteTxtClr: Box<UIColor> { get }
     var defaultVoteTxtClr: Box<UIColor> { get }
     
-    var notifyDelegateDidTapUpvote: Box<Void?> { get }
-    var notifyDelegateDidTapDownvote: Box<Void?> { get }
+    var notifyDelegateDidTapUpvote: Box<Topic?> { get }
+    var notifyDelegateDidTapDownvote: Box<Topic?> { get }
 }
 
 protocol TopicTVCellViewModelType: TopicTVCellViewModelInputs, TopicTVCellViewModelOutputs {
@@ -33,13 +36,28 @@ protocol TopicTVCellViewModelType: TopicTVCellViewModelInputs, TopicTVCellViewMo
 
 class TopicTVCellViewModel: TopicTVCellViewModelType, TopicTVCellViewModelInputs, TopicTVCellViewModelOutputs {
     
+    fileprivate var topic: Topic?
+    
+    func configure(topic: Topic) {
+        self.topic = topic
+        
+        outputs.content.value = topic.content
+        outputs.vote.value = topic.vote
+    }
+    
     func didTapUpvote() {
-        outputs.notifyDelegateDidTapUpvote.value = ()
-        outputs.notifyDelegateDidTapUpvote.value = nil
+        outputs.notifyDelegateDidTapUpvote.value = topic
     }
     
     func didTapDownvote() {
-        outputs.notifyDelegateDidTapDownvote.value = ()
+        outputs.notifyDelegateDidTapDownvote.value = topic
+    }
+    
+    func didNotifyDelegateDidTapUnvote() {
+        outputs.notifyDelegateDidTapUpvote.value = nil
+    }
+    
+    func didNotifyDelegateDidTapDownvote() {
         outputs.notifyDelegateDidTapDownvote.value = nil
     }
     
@@ -50,8 +68,8 @@ class TopicTVCellViewModel: TopicTVCellViewModelType, TopicTVCellViewModelInputs
     let downvoteTxtClr: Box<UIColor> = Box(UIColor.blue)
     let defaultVoteTxtClr: Box<UIColor> = Box(UIColor.gray)
     
-    let notifyDelegateDidTapUpvote: Box<Void?> = Box(nil)
-    let notifyDelegateDidTapDownvote: Box<Void?> = Box(nil)
+    let notifyDelegateDidTapUpvote: Box<Topic?> = Box(nil)
+    let notifyDelegateDidTapDownvote: Box<Topic?> = Box(nil)
     
     var inputs: TopicTVCellViewModelInputs { return self }
     var outputs: TopicTVCellViewModelOutputs { return self }

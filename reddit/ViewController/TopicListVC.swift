@@ -73,11 +73,11 @@ extension TopicListVC: UITableViewDelegate {
 
 // MARK: - TopicTVCellDelegate
 extension TopicListVC: TopicTVCellDelegate {
-    func topicTVCellDidTapUpvote(_ cell: TopicTVCell) {
+    func topicTVCell(_ cell: TopicTVCell, didTapUpvote topic: Topic) {
         
     }
     
-    func topicTVCellDidTapDownvote(_ cell: TopicTVCell) {
+    func topicTVCell(_ cell: TopicTVCell, didTapDownVote topic: Topic) {
         
     }
 }
