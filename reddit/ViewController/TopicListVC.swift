@@ -12,6 +12,9 @@ class TopicListVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    //
+    let dataSource = TopicListDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +51,14 @@ class TopicListVC: UIViewController {
     }
     
     private func setupListener() {
+        dataSource.registerClasses(tableView: tableView)
+        tableView.dataSource = dataSource
+        tableView.delegate = self
         
+        dataSource.append(contentsOf: [Topic(id: "1")])
     }
+}
+
+extension TopicListVC: UITableViewDelegate {
+    
 }

@@ -20,6 +20,7 @@
 		EC0B209E209DCBC9008E2E18 /* AddTopicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B209D209DCBC9008E2E18 /* AddTopicVC.swift */; };
 		EC0B20A1209DCC95008E2E18 /* TopicTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B209F209DCC95008E2E18 /* TopicTVCell.swift */; };
 		EC0B20A2209DCC95008E2E18 /* TopicTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0B20A0209DCC95008E2E18 /* TopicTVCell.xib */; };
+		EC0B20A4209DCE10008E2E18 /* TopicListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B20A3209DCE10008E2E18 /* TopicListDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		EC0B209D209DCBC9008E2E18 /* AddTopicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicVC.swift; sourceTree = "<group>"; };
 		EC0B209F209DCC95008E2E18 /* TopicTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTVCell.swift; sourceTree = "<group>"; };
 		EC0B20A0209DCC95008E2E18 /* TopicTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicTVCell.xib; sourceTree = "<group>"; };
+		EC0B20A3209DCE10008E2E18 /* TopicListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		EC0B208D209DC060008E2E18 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				EC0B20A3209DCE10008E2E18 /* TopicListDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			files = (
 				EC0B209C209DCB19008E2E18 /* TopicListVC.swift in Sources */,
 				EC0B205D209DBF5E008E2E18 /* AppDelegate.swift in Sources */,
+				EC0B20A4209DCE10008E2E18 /* TopicListDataSource.swift in Sources */,
 				EC0B209E209DCBC9008E2E18 /* AddTopicVC.swift in Sources */,
 				EC0B2098209DC0CF008E2E18 /* Topic.swift in Sources */,
 				EC0B2096209DC0C0008E2E18 /* Repository.swift in Sources */,

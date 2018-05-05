@@ -36,4 +36,9 @@ class TopicTVCell: UITableViewCell {
     private func setupListener() {
         
     }
+    
+    // MARK: - Configurator
+    func configureWith(value: Topic) {
+        
+    }
 }
