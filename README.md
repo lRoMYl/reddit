@@ -2,13 +2,14 @@
 
 A simplified Reddit app to demo using MVVM without RX library and Repository design pattern
 
-## Functionalities;
+## Functionalities
 ### List of topics, sorted by vote and filtered to 20 items (In-memory repo, no persistency)
 - A struct Topic is used to store the data for the topic
 - A common Repository protocol which includes all basic operation such as find, getAll, add, update and delete
-- TopicRepository implement the Repository protocol and manage an array of Topic struct internally and perform the operations internally
+- TopicRepository implement the Repository protocol and manage an array of Topic struct internally, all operations are done using the internal array of Topic.
 - Sorting is implemented using Comparable interface and built-in sort mechanism, specifically sorted(by:)
 - Filtering is implemented using built-in filter mechanism, specifically prefix(_:)
+- A standalone DataSource that separates the implementation of UITableViewDataSource, UITableViewCell registration and data management from the view controller
 
 ### Add text based topic with minimum 0 characters and maximum 255 characters limit validation
 - Simple validation using guard statement to check for the inputs validity after removing white space and new lines
@@ -25,5 +26,7 @@ A simplified Reddit app to demo using MVVM without RX library and Repository des
 - The ViewModel also allow dependency injection of the repository to perform the testing in isolation
 
 ### MVVM view binding
-- Box implemention that accept a generic associatedType
-- Box will also include a closure callback parameter which can be set using the bind method, which can be used to update the desired UI element when changes occur
+- Boxing implemention, a Box class that is initialize using a generic associatedType value
+- Box include a bind method that accept a closure parameter, which can be used to update the desired UI element when changes occur to the value
+- ViewModel is implemented using three procotols, typically ViewModelOutputs, ViewModelInputs, and lastly ViewModelType which combine ViewModelOutputs and ViewModelInputs and expose it as a inputs and outputs variable. 
+- By Using the ViewModelType, there is a clear differentiation when accessing the viewModel properties. E.g. viewModel.inputs.didTapAdd() which represent input from the ViewController and viewModel.outputs.title which represent value that will changed and can be subscribed to update the view using the closure.
