@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC0B205D209DBF5E008E2E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B205C209DBF5E008E2E18 /* AppDelegate.swift */; };
-		EC0B205F209DBF5E008E2E18 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B205E209DBF5E008E2E18 /* FirstViewController.swift */; };
-		EC0B2061209DBF5E008E2E18 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B2060209DBF5E008E2E18 /* SecondViewController.swift */; };
 		EC0B2064209DBF5E008E2E18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B2062209DBF5E008E2E18 /* Main.storyboard */; };
 		EC0B2066209DBF5F008E2E18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0B2065209DBF5F008E2E18 /* Assets.xcassets */; };
 		EC0B2069209DBF5F008E2E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B2067209DBF5F008E2E18 /* LaunchScreen.storyboard */; };
@@ -37,8 +35,6 @@
 /* Begin PBXFileReference section */
 		EC0B2059209DBF5E008E2E18 /* reddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0B205C209DBF5E008E2E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC0B205E209DBF5E008E2E18 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		EC0B2060209DBF5E008E2E18 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		EC0B2063209DBF5E008E2E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC0B2065209DBF5F008E2E18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC0B2068209DBF5F008E2E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,9 +95,16 @@
 		EC0B205B209DBF5E008E2E18 /* reddit */ = {
 			isa = PBXGroup;
 			children = (
+				EC0B208C209DC060008E2E18 /* Cell */,
+				EC0B208D209DC060008E2E18 /* DataSource */,
+				EC0B2093209DC061008E2E18 /* Extension */,
+				EC0B2091209DC060008E2E18 /* Model */,
+				EC0B2092209DC061008E2E18 /* Repository */,
+				EC0B208E209DC060008E2E18 /* Utility */,
+				EC0B2094209DC061008E2E18 /* View */,
+				EC0B208F209DC060008E2E18 /* ViewController */,
+				EC0B2090209DC060008E2E18 /* ViewModel */,
 				EC0B205C209DBF5E008E2E18 /* AppDelegate.swift */,
-				EC0B205E209DBF5E008E2E18 /* FirstViewController.swift */,
-				EC0B2060209DBF5E008E2E18 /* SecondViewController.swift */,
 				EC0B2062209DBF5E008E2E18 /* Main.storyboard */,
 				EC0B2065209DBF5F008E2E18 /* Assets.xcassets */,
 				EC0B2067209DBF5F008E2E18 /* LaunchScreen.storyboard */,
@@ -126,6 +129,69 @@
 				EC0B2080209DBF60008E2E18 /* Info.plist */,
 			);
 			path = redditUITests;
+			sourceTree = "<group>";
+		};
+		EC0B208C209DC060008E2E18 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EC0B208D209DC060008E2E18 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		EC0B208E209DC060008E2E18 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		EC0B208F209DC060008E2E18 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EC0B2090209DC060008E2E18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC0B2091209DC060008E2E18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EC0B2092209DC061008E2E18 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EC0B2093209DC061008E2E18 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EC0B2094209DC061008E2E18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC0B2061209DBF5E008E2E18 /* SecondViewController.swift in Sources */,
 				EC0B205D209DBF5E008E2E18 /* AppDelegate.swift in Sources */,
-				EC0B205F209DBF5E008E2E18 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
