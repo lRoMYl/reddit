@@ -29,7 +29,7 @@ class TopicTVCell: UITableViewCell {
     
     //
     weak var delegate: TopicTVCellDelegate?
-    let viewModel = TopicTVCellViewModel()
+    let viewModel: TopicTVCellViewModelType = TopicTVCellViewModel()
     
     override func awakeFromNib() {
         super.awakeFromNib()

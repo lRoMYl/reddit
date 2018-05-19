@@ -25,7 +25,7 @@ class AddTopicVC: UIViewController {
     
     //
     weak var delegate: AddTopicVCDelegate?
-    let viewModel = AddTopicVCViewModel()
+    let viewModel: AddTopicVCViewModelType = AddTopicVCViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

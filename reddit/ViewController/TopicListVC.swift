@@ -16,7 +16,7 @@ class TopicListVC: UIViewController {
     let refreshControl = UIRefreshControl()
     
     //
-    let viewModel = TopicListVCViewModel()
+    let viewModel: TopicListVCViewModelType = TopicListVCViewModel()
     let dataSource = TopicListDataSource()
     fileprivate var cachedCellHeight: [IndexPath: CGFloat] = [:]
     
@@ -128,7 +128,7 @@ class TopicListVC: UIViewController {
     
     // MARK: - Navigation
     func presentError(error: Error) {
-        viewModel.didPresentError()
+        viewModel.inputs.didPresentError()
         
         let alert = UIAlertController(
             title: NSLocalizedString("Error", comment: ""),
