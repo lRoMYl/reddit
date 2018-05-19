@@ -18,6 +18,7 @@ class TopicListVC: UIViewController {
     //
     let viewModel = TopicListVCViewModel()
     let dataSource = TopicListDataSource()
+    fileprivate var cachedCellHeight: [IndexPath: CGFloat] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,10 +173,16 @@ class TopicListVC: UIViewController {
 
 // MARK: - UITableViewDelegate
 extension TopicListVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cachedCellHeight[indexPath] ?? UITableViewAutomaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? TopicTVCell {
             cell.delegate = self
         }
+        
+        cachedCellHeight[indexPath] = cell.frame.height
     }
 }
 
